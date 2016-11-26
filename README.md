@@ -1,6 +1,15 @@
 
 # サンプルデータ
 
+
+```python
+import numpy as np
+import pandas as pd
+import matplotlib .pyplot as plt
+import seaborn as sns
+import scipy.stats as ss
+```
+
 ## 線形データ
 
 
@@ -92,10 +101,10 @@ r = np.random.randn(4, 5); r
 
 
 
-    array([[ 0.54897778,  0.4042393 ,  0.20286199,  0.87018197,  0.52087064],
-           [ 0.15261458, -0.32760599,  0.37528929,  0.05240482,  0.70252085],
-           [ 0.39302499,  1.11363247,  1.7319287 ,  1.48387384,  0.64328427],
-           [-0.16466795, -0.68573552, -0.83629887,  0.24340992,  0.73577441]])
+    array([[-0.76798351,  0.39545824, -0.18938856, -1.34485011,  0.8722842 ],
+           [ 0.87813634, -0.80880185,  1.10395955,  2.44202835,  0.04306526],
+           [ 0.33626586,  0.29698914,  0.82286026, -1.07663082, -0.3184203 ],
+           [-0.34109916, -0.04371998,  0.9267362 , -0.27744202, -0.16861789]])
 
 
 
@@ -122,35 +131,35 @@ df = pd.DataFrame(r, columns=list('abcde')); df
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.548978</td>
-      <td>0.404239</td>
-      <td>0.202862</td>
-      <td>0.870182</td>
-      <td>0.520871</td>
+      <td>-0.767984</td>
+      <td>0.395458</td>
+      <td>-0.189389</td>
+      <td>-1.344850</td>
+      <td>0.872284</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.152615</td>
-      <td>-0.327606</td>
-      <td>0.375289</td>
-      <td>0.052405</td>
-      <td>0.702521</td>
+      <td>0.878136</td>
+      <td>-0.808802</td>
+      <td>1.103960</td>
+      <td>2.442028</td>
+      <td>0.043065</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.393025</td>
-      <td>1.113632</td>
-      <td>1.731929</td>
-      <td>1.483874</td>
-      <td>0.643284</td>
+      <td>0.336266</td>
+      <td>0.296989</td>
+      <td>0.822860</td>
+      <td>-1.076631</td>
+      <td>-0.318420</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.164668</td>
-      <td>-0.685736</td>
-      <td>-0.836299</td>
-      <td>0.243410</td>
-      <td>0.735774</td>
+      <td>-0.341099</td>
+      <td>-0.043720</td>
+      <td>0.926736</td>
+      <td>-0.277442</td>
+      <td>-0.168618</td>
     </tr>
   </tbody>
 </table>
@@ -166,12 +175,12 @@ df.plot()
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x284e8dc5668>
+    <matplotlib.axes._subplots.AxesSubplot at 0x284ea821780>
 
 
 
 
-![png](README_files/README_8_1.png)
+![png](README_files/README_9_1.png)
 
 
 
@@ -187,12 +196,12 @@ plt.contourf(df, cmap='jet')
 
 
 
-    <matplotlib.contour.QuadContourSet at 0x284e9291cf8>
+    <matplotlib.contour.QuadContourSet at 0x284ea934a20>
 
 
 
 
-![png](README_files/README_10_1.png)
+![png](README_files/README_11_1.png)
 
 
 等高線表示
@@ -205,12 +214,12 @@ plt.pcolor(df, cmap='jet')
 
 
 
-    <matplotlib.collections.PolyCollection at 0x284e930ca58>
+    <matplotlib.collections.PolyCollection at 0x284ea9ad3c8>
 
 
 
 
-![png](README_files/README_12_1.png)
+![png](README_files/README_13_1.png)
 
 
 カラーマップ表示
@@ -232,12 +241,12 @@ s.plot()
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x284e92cf0f0>
+    <matplotlib.axes._subplots.AxesSubplot at 0x284ea8e3fd0>
 
 
 
 
-![png](README_files/README_16_1.png)
+![png](README_files/README_17_1.png)
 
 
 sin波
@@ -252,22 +261,17 @@ sdf.plot(color=('r', 'b'))
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x284e9353cc0>
+    <matplotlib.axes._subplots.AxesSubplot at 0x284ea9f6588>
 
 
 
 
-![png](README_files/README_18_1.png)
+![png](README_files/README_19_1.png)
 
 
 ノイズをのせた
 
 ## 正規分布
-
-
-```python
-from  scipy import stats as ss
-```
 
 
 ```python
@@ -279,7 +283,7 @@ g.plot()
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x284e93c1080>
+    <matplotlib.axes._subplots.AxesSubplot at 0x284eaa587f0>
 
 
 
@@ -297,7 +301,7 @@ df.plot(color=('r', 'b'))
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x284e94764e0>
+    <matplotlib.axes._subplots.AxesSubplot at 0x284eab0ef28>
 
 
 
@@ -318,7 +322,7 @@ l.plot()
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x284e94ac080>
+    <matplotlib.axes._subplots.AxesSubplot at 0x284eab426a0>
 
 
 
@@ -336,7 +340,7 @@ df.plot(color=('r', 'b'))
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x284e951fc18>
+    <matplotlib.axes._subplots.AxesSubplot at 0x284eabece10>
 
 
 
@@ -344,7 +348,47 @@ df.plot(color=('r', 'b'))
 ![png](README_files/README_26_1.png)
 
 
+## ランダムウォーク
+
 
 ```python
-
+n = 1000
+se = pd.Series(np.random.randint(-1, 2, n)).cumsum()
+se.plot()
 ```
+
+
+
+
+    <matplotlib.axes._subplots.AxesSubplot at 0x284f3c62c18>
+
+
+
+
+![png](README_files/README_28_1.png)
+
+
+np.random.randint(-1, 2, n)で(-1, 0, 1)のどれかをランダムにn個生成し、cumsum()で積み上げ合計していくことでランダムウォークを描く。
+
+
+```python
+sma100 = se.rolling(100).mean()
+ema100 = se.ewm(span=100).mean()
+
+df = pd.DataFrame({'Chart': se,  'SMA100': sma100, 'EMA100': ema100})
+df.plot(style = ['--','-','-'])
+```
+
+
+
+
+    <matplotlib.axes._subplots.AxesSubplot at 0x284f3cadcc0>
+
+
+
+
+![png](README_files/README_30_1.png)
+
+
+単純移動平均線(Simple Moving Average)と指数移動平均線(Exponential Moving Average)を同時に描画した。
+EMAの方がSMAと比べて一般的に直近の動きを反映しやすく、トレンドに追随しやすいといわれている。
