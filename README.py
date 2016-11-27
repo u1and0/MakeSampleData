@@ -10,14 +10,12 @@ import pandas as pd
 import matplotlib .pyplot as plt
 import seaborn as sns
 import scipy.stats as ss
+get_ipython().magic('matplotlib inline')
 
 
 # ## 線形データ
 
-# In[24]:
-
-n=20
-
+# n=20
 
 # In[25]:
 
@@ -31,12 +29,9 @@ df = pd.DataFrame(a, columns=list('abcde')); df
 
 # ## ランダムデータ
 
+# r = np.random.randn(4, 5); r
+
 # In[27]:
-
-r = np.random.randn(4, 5); r
-
-
-# In[28]:
 
 df = pd.DataFrame(r, columns=list('abcde')); df
 

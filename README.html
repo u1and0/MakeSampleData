@@ -11765,6 +11765,7 @@ div#notebook {
 <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="o">.</span><span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">ss</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 
 </div>
@@ -11781,18 +11782,15 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">20</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>n=20</p>
 
 </div>
 </div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -11910,12 +11908,22 @@ div#notebook {
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>r = np.random.randn(4, 5); r</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span> <span class="n">r</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcde&#39;</span><span class="p">));</span> <span class="n">df</span>
 </pre></div>
 
 </div>
@@ -11934,81 +11942,6 @@ div#notebook {
        [ 0.87813634, -0.80880185,  1.10395955,  2.44202835,  0.04306526],
        [ 0.33626586,  0.29698914,  0.82286026, -1.07663082, -0.3184203 ],
        [-0.34109916, -0.04371998,  0.9267362 , -0.27744202, -0.16861789]])</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcde&#39;</span><span class="p">));</span> <span class="n">df</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[28]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>a</th>
-      <th>b</th>
-      <th>c</th>
-      <th>d</th>
-      <th>e</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>-0.767984</td>
-      <td>0.395458</td>
-      <td>-0.189389</td>
-      <td>-1.344850</td>
-      <td>0.872284</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.878136</td>
-      <td>-0.808802</td>
-      <td>1.103960</td>
-      <td>2.442028</td>
-      <td>0.043065</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.336266</td>
-      <td>0.296989</td>
-      <td>0.822860</td>
-      <td>-1.076631</td>
-      <td>-0.318420</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>-0.341099</td>
-      <td>-0.043720</td>
-      <td>0.926736</td>
-      <td>-0.277442</td>
-      <td>-0.168618</td>
-    </tr>
-  </tbody>
-</table>
-</div>
 </div>
 
 </div>
