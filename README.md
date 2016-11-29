@@ -7,7 +7,6 @@ import numpy as np
 import pandas as pd
 import matplotlib .pyplot as plt
 import seaborn as sns
-import scipy.stats as ss
 %matplotlib inline
 ```
 
@@ -212,25 +211,67 @@ sdf.plot(color=('r', 'b'))
 
 ノイズをのせた
 
+## 減衰振動
+
+
+```python
+n=100
+x = np.linspace(0, 6*np.pi, n)
+```
+
+
+```python
+dos = np.exp(-0.1*x) * np.cos(x)
+plt.plot(x, dos)
+```
+
+
+
+
+    [<matplotlib.lines.Line2D at 0x1ccb9a0d6d8>]
+
+
+
+
+![png](README_files/README_23_1.png)
+
+
+$$ Ce^{-\zeta\omega_0t}\cos \left({\omega_0\sqrt{1-\zeta^2}t-\alpha} \right) $$
+
 ## 正規分布
 
 
 ```python
+import scipy.stats as ss
+```
+
+
+```python
+n=100
+x = np.linspace(-5, 5, n)
+```
+
+
+```python
 median = x[int(n/2)]  # xの中央値
-g = pd.Series(ss.norm.pdf(x, loc=median), x)
+g = pd.Series(ss.norm.pdf(x, loc=median, scale=3), x)
 g.plot()
 ```
 
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x284eaa587f0>
+    <matplotlib.axes._subplots.AxesSubplot at 0x28757379780>
 
 
 
 
-![png](README_files/README_22_1.png)
+![png](README_files/README_28_1.png)
 
+
+$$y(x) = \exp \left( \frac{-x^2/2}{\sqrt{2\pi}} \right) $$
+
+$loc$と$scale$が指定されたときは、$x$が$\frac{x-loc}{scale}$となる。
 
 
 ```python
@@ -242,12 +283,12 @@ df.plot(color=('r', 'b'))
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x284eab0ef28>
+    <matplotlib.axes._subplots.AxesSubplot at 0x287583ba240>
 
 
 
 
-![png](README_files/README_23_1.png)
+![png](README_files/README_30_1.png)
 
 
 ## log関数
@@ -268,7 +309,7 @@ l.plot()
 
 
 
-![png](README_files/README_25_1.png)
+![png](README_files/README_32_1.png)
 
 
 
@@ -286,7 +327,58 @@ df.plot(color=('r', 'b'))
 
 
 
-![png](README_files/README_26_1.png)
+![png](README_files/README_33_1.png)
+
+
+## シグモイド関数(ロジスティック関数)
+
+
+```python
+from scipy.special import expit
+```
+
+
+```python
+n = 100
+m = 10
+x = np.linspace(-m, m, n)
+```
+
+
+```python
+sig = expit(x)
+plt.plot(x, sig)
+```
+
+
+
+
+    [<matplotlib.lines.Line2D at 0x28758537128>]
+
+
+
+
+![png](README_files/README_37_1.png)
+
+
+ $$y(x) = \frac{1}{(1+e^{-x})}$$
+
+
+```python
+signoise = sig + 0.1 * np.random.randn(n)
+plt.plot(x, sig)
+plt.plot(x, signoise)
+```
+
+
+
+
+    [<matplotlib.lines.Line2D at 0x28758616eb8>]
+
+
+
+
+![png](README_files/README_39_1.png)
 
 
 ## ランダムウォーク
@@ -306,7 +398,7 @@ se.plot()
 
 
 
-![png](README_files/README_28_1.png)
+![png](README_files/README_41_1.png)
 
 
 np.random.randint(-1, 2, n)で(-1, 0, 1)のどれかをランダムにn個生成し、cumsum()で積み上げ合計していくことでランダムウォークを描く。
@@ -328,7 +420,7 @@ df.plot(style = ['--','-','-'])
 
 
 
-![png](README_files/README_30_1.png)
+![png](README_files/README_43_1.png)
 
 
 単純移動平均線(Simple Moving Average)と指数移動平均線(Exponential Moving Average)を同時に描画した。
