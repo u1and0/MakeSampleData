@@ -9,15 +9,12 @@ import numpy as np
 import pandas as pd
 import matplotlib .pyplot as plt
 import seaborn as sns
-import scipy.stats as ss
+get_ipython().magic('matplotlib inline')
 
 
 # ## 線形データ
 
-# In[24]:
-
-n=20
-
+# n=20
 
 # In[25]:
 
@@ -31,12 +28,9 @@ df = pd.DataFrame(a, columns=list('abcde')); df
 
 # ## ランダムデータ
 
+# r = np.random.randn(4, 5); r
+
 # In[27]:
-
-r = np.random.randn(4, 5); r
-
-
-# In[28]:
 
 df = pd.DataFrame(r, columns=list('abcde')); df
 
@@ -90,16 +84,47 @@ sdf.plot(color=('r', 'b'))
 
 # ノイズをのせた
 
+# ## 減衰振動
+
+# In[1]:
+
+n=100
+x = np.linspace(0, 6*np.pi, n)
+
+
+# In[10]:
+
+dos = np.exp(-0.1*x) * np.cos(x)
+plt.plot(x, dos)
+
+
+# $$ Ce^{-\zeta\omega_0t}\cos \left({\omega_0\sqrt{1-\zeta^2}t-\alpha} \right) $$
+
 # ## 正規分布
 
-# In[36]:
+# In[6]:
+
+import scipy.stats as ss
+
+
+# In[7]:
+
+n=100
+x = np.linspace(-5, 5, n)
+
+
+# In[19]:
 
 median = x[int(n/2)]  # xの中央値
-g = pd.Series(ss.norm.pdf(x, loc=median), x)
+g = pd.Series(ss.norm.pdf(x, loc=median, scale=3), x)
 g.plot()
 
 
-# In[37]:
+# $$y(x) = \exp \left( \frac{-x^2/2}{\sqrt{2\pi}} \right) $$
+# 
+# $loc$と$scale$が指定されたときは、$x$が$\frac{x-loc}{scale}$となる。
+
+# In[20]:
 
 gnoise = g + 0.01 * np.random.randn(n)
 df = pd.DataFrame({'gauss wave':g, 'noise wave': gnoise})
@@ -121,6 +146,35 @@ l.plot()
 lnoise = l + 0.1 * np.random.randn(n)
 df = pd.DataFrame({'log wave':l, 'noise wave': lnoise})
 df.plot(color=('r', 'b'))
+
+
+# ## シグモイド関数(ロジスティック関数)
+
+# In[2]:
+
+from scipy.special import expit
+
+
+# In[12]:
+
+n = 100
+m = 10
+x = np.linspace(-m, m, n)
+
+
+# In[25]:
+
+sig = expit(x)
+plt.plot(x, sig)
+
+
+#  $$y(x) = \frac{1}{(1+e^{-x})}$$
+
+# In[28]:
+
+signoise = sig + 0.1 * np.random.randn(n)
+plt.plot(x, sig)
+plt.plot(x, signoise)
 
 
 # ## ランダムウォーク
